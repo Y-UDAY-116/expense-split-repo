@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Splitter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="initialFormContainer">
+            <form id="initialForm">
+                <h1><span class="title">Bill Splitter</span></h1>
+                <label for="people">Number of People:</label>
+                <input type="number" id="peopleCount" name="people" min="1" max="20" required>
+                <br>
+                <input type="submit" value="Next" id="submit">
+            </form>
+        </div>
+        
+        <!-- This container will hold the dynamically created name form -->
+        <div id="nameFormContainer" style="display: none;">
+            <h2>Enter the Names of the People</h2>
+            <p>(Maximum length is 10 characters)</p>
+                <form id="nameForm"></form>
+        </div>
+
+        <!-- Choose what foods and who ate them -->
+        <div id="foodAndNameSelect" style="display: none;">
+            <h2>Enter the food and their prices</h2>
+                <form id="foodForm"></form>
+        </div>
+
+        <!-- Input for tax percentage -->
+        <div id="taxFormContainer" style="display: none;">
+            <h2>Enter Tax Percentage</h2>
+            <form id="taxForm">
+                <label for="taxRate">Tax %:</label>
+                <input type="number" id="taxRate" name="taxRate" min="0" step="0.01" required><br>
+                <input type="submit" value="Apply Tax">
+            </form>
+            <button type="button" id="backButtonTax" class="commonButton">Back to Food</button>
+        </div>
+
+        <!-- Final result -->
+         <div id="finalResultContainer" style="display: none;">
+            <div id="finalResult"></div>
+            <button type="button" id="backButtonResult" class="commonButton">Back to Tax</button>
+            <button id="pdfButton" class="commonButton pdfButton">Download Receipt as PDF</button>
+         </div>
+
+        
+        <button id="toggleMode" class="commonButton">Toggle Night Mode</button>
+    </div>
+    <footer class="footer-left"><p>© 2024 Clarence Choo</p></footer>
+    <footer class="footer-right"><p>V 1.2</p></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
